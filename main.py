@@ -12,17 +12,17 @@ import re
 import textwrap
 
 # Configure ImageMagick paths
-os.environ["IMAGEMAGICK_BINARY"] = r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"
-os.environ["CONVERT_BINARY"] = r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\convert.exe"
+os.environ["IMAGEMAGICK_BINARY"] = r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"   # Replace this with your actual file location
+os.environ["CONVERT_BINARY"] = r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\convert.exe"   # Replace this with your actual file location
 
 # Step 1: Gemini Setup
-GEMINI_API_KEY = "AIzaSyCfwWLbjQlwz90FsU98mPcNoKHTi4sn7g0"
+GEMINI_API_KEY = "YOUR-GEMINI-API-KEY-HERE"  # replce YOUR-GEMINI-API-KEY-HERE with gemini api key
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Step 2: Get trending news
 def get_trending_news():
-    feed = feedparser.parse("https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en")
+    feed = feedparser.parse("https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en")  # provide any other link if you want
     article = feed.entries[0]
     return article.title, article.summary
 
